@@ -2,6 +2,7 @@ require 'sawyer'
 require 'oktakit/response/raise_error'
 require 'oktakit/client/admin_roles'
 require 'oktakit/client/apps'
+require 'oktakit/client/authn'
 require 'oktakit/client/events'
 require 'oktakit/client/factors'
 require 'oktakit/client/groups'
@@ -14,6 +15,7 @@ module Oktakit
   class Client
     include AdminRoles
     include Apps
+    include Authn
     include Events
     include Factors
     include Groups
