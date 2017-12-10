@@ -208,6 +208,22 @@ module Oktakit
         post("/idps/tx/#{transaction_id}/lifecycle/confirm/#{user_id}", options)
       end
 
+      # Finish IdP Transaction
+      #
+      # @params transaction_id [string] Transaction ID
+      # @param options[:query] [Hash] Optional. Query params for request
+      # @param options[:headers] [Hash] Optional. Header params for the request.
+      # @param options[:accept] [String] Optional. The content type to accept. Default application/json
+      # @param options[:content_type] [String] Optional. The content type for the request. Default application/json
+      # @param options [Hash] Optional. Body params for request.
+      # @return [Hash<Sawyer::Resource>] Identity Provider Transaction
+      # @see http://developer.okta.com/docs/api/resources/idps.html#link-idp-user
+      # @example
+      #   Oktakit.finish_idp_transaction('transaction_id')
+      def finish_idp_transaction(id, options = {})
+        post("/idps/tx/#{id}/finish", options)
+      end
+
       # Add X.509 Certificate Public Key
       #
       # @param options[:query] [Hash] Optional. Query params for request
