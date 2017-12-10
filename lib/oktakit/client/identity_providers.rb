@@ -269,6 +269,24 @@ module Oktakit
       def delete_key(key_id, options = {})
         delete("/idps/credentials/keys/#{key_id}", options)
       end
+
+      # Unlink User from IdP
+      #
+      # @params idp_id [string] Identity Provider ID
+      # @params user_id [string] User ID
+      # @param options[:query] [Hash] Optional. Query params for request
+      # @param options[:headers] [Hash] Optional. Header params for the request.
+      # @param options[:accept] [String] Optional. The content type to accept. Default application/json
+      # @param options[:content_type] [String] Optional. The content type for the request. Default application/json
+      # @param options [Hash] Optional. Body params for request.
+      # @return [Hash<Sawyer::Resource>]
+      # @see https://developer.okta.com/docs/api/resources/idps.html#unlink-user-from-idp
+      # @example
+      #   Oktakit.unlink_idp_user('idp_id', 'user_id')
+      def unlink_idp_user(idp_id, user_id, options = {})
+        delete("/idps/#{idp_id}/users/#{user_id}", options)
+      end
+
     end
   end
 end

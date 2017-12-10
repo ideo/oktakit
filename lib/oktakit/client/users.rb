@@ -110,6 +110,22 @@ module Oktakit
         get("/users/#{id}/groups", options)
       end
 
+      # Get Identity Providers
+      #
+      # @params id [string] User ID
+      # @param options[:query] [Hash] Optional. Query params for request
+      # @param options[:headers] [Hash] Optional. Header params for the request.
+      # @param options[:accept] [String] Optional. The content type to accept. Default application/json
+      # @param options[:content_type] [String] Optional. The content type for the request. Default application/json
+      # @param options [Hash] Optional. Body params for request.
+      # @return [Array<Sawyer::Resource>] Array of Identity Providers
+      # @see https://developer.okta.com/docs/api/resources/idps.html#listing-idps-associated-with-a-user
+      # @example
+      #   Oktakit.list_user_idps('id')
+      def list_user_idps(id, options = {})
+        get("/users/#{id}/idps", options)
+      end
+
       # Activate User
       #
       # @params id [string] User ID
