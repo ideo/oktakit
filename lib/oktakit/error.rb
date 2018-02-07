@@ -42,7 +42,7 @@ module Oktakit
     # @return [Array<Hash>] Error info
     def errors
       if data && data.is_a?(Hash)
-        data[:errors] || []
+        data.try(:[], :errors) || data.try(:[], :errorCauses) || []
       else
         []
       end
